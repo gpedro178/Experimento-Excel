@@ -14,7 +14,7 @@ for provincia in clientesProvincia[1:]:
         clientesFuera_de_BSAS += 1
 
 print()
-print("Cantidad de clientes que viven fuera de BS AS:", clientesFuera_de_BSAS)
+print("> Cantidad de Clientes que Viven Fuera de BS AS:", clientesFuera_de_BSAS)
 print()
 
 ############
@@ -36,9 +36,13 @@ for provincia in clientesProvincia[1:]:
         clientesGasto_total_super_BSAS += float(
             clientesSupermercado[indiceProvincia].value)
 
+print("Cantidad de Clientes que Viven en BS AS:", clientesEn_BSAS)
+print("Gasto Total en Supermercado de Clientes que Viven en BS AS: $", round(clientesGasto_total_super_BSAS,2))
+print()
+
 clientesGasto_prom_super_BSAS = round( clientesGasto_total_super_BSAS / clientesEn_BSAS, 2)
 
-print("Gasto Promedio en Supermercado de Clientes que Viven en BS AS: $", clientesGasto_prom_super_BSAS)
+print("> Gasto Promedio en Supermercado de Clientes que Viven en BS AS: $", clientesGasto_prom_super_BSAS)
 print()
 
 ############
@@ -76,8 +80,9 @@ print()
 # Determinando qué grupo consume más
 
 if clientesGasto_total_casados > clientesGasto_total_solteros:
-    print("Los clientes casados consumen más en total que los clientes solteros")
+    print("> Los clientes casados consumen más en total que los clientes solteros.")
 elif clientesGasto_total_casados < clientesGasto_total_solteros:
-    print("Los clientes solteros consumen más en total que los clientes casados")
+    print("> Los clientes solteros consumen más en total que los clientes casados.")
 else:
-    print("Los clientes casados y solteros tienen el mismo nivel de consumo total")
+    print("> Los clientes casados y solteros tienen el mismo nivel de consumo total.")
+print()
