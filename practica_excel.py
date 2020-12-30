@@ -9,6 +9,10 @@ excelSheet = excelWorkbook.active
 clientesProvincia = excelSheet["B"]
 clientesFuera_de_BSAS = 0
 
+# Usando "for in" recorremos la "lista" clientesProvincia y
+# y usando "clientesProvincia[1:]" hacemos que la lista empiece 
+# desde el 2do valor, evitando el encabezado
+
 for provincia in clientesProvincia[1:]:
     if provincia.value != "Buenos Aires":
         clientesFuera_de_BSAS += 1
@@ -21,7 +25,7 @@ print()
 # Gasto promedio en supermercado de clientes en BSAS
 ############
 
-clientesSupermercado = excelSheet["D"]
+clientesGasto_supermercado = excelSheet["D"]
 
 clientesGasto_total_super_BSAS = 0
 clientesEn_BSAS = 0
@@ -32,9 +36,10 @@ for provincia in clientesProvincia[1:]:
         clientesEn_BSAS += 1
         
         indiceProvincia = clientesProvincia.index(provincia)
-        
+        # Usamos el índice para ubicar el gasto en supermercado 
+        # correspondiente y sumarlo al total
         clientesGasto_total_super_BSAS += float(
-            clientesSupermercado[indiceProvincia].value)
+            clientesGasto_supermercado[indiceProvincia].value)
 
 print("Cantidad de Clientes que Viven en BS AS:", clientesEn_BSAS)
 print("Gasto Total en Supermercado de Clientes que Viven en BS AS: $", round(clientesGasto_total_super_BSAS,2))
@@ -50,6 +55,7 @@ print()
 ############
 
 clientesEstado_civil = excelSheet["W"]
+
 # La columna "C" o "INGRESO" es equivalente a la suma del gasto en todas las otras columnas por lo que se usa como gasto total.
 clientesGasto_total = excelSheet["C"]
 
